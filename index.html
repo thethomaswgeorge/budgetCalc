@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"> <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="img/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="img/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="img/favicon-128.png" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#27ae60" />
+<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="img/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="img/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="img/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="img/mstile-310x310.png" />
+<link rel="stylesheet" href="css/style.css">
+<title>Budget  Calc | Created By Thomas George</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="center">
+		<img src="fundslarge.png" id="top-funds-img" alt="Funds Logo">
+	</div>
+	<div id="container">
+		<h4>Hourly Wage</h4>
+		<input type="number" id="wage" placeholder="e.g. 7.25"  onkeyup="changeChange()">
+		<h4>Hours Worked</h4>
+		<input type="number" id="hours" placeholder="e.g. 40"  onkeyup="changeChange()">
+		<h4>Overtime Multiplier</h4>
+		<input type="number" id="overtime" placeholder="e.g. 1.5  (Time and a half)" onkeyup="changeChange()">
+		<table>
+			<tr>
+				<th>Hours Worked</th>
+				<th>Profit w/o Taxes</th>
+				<th>Profit w Taxes</th>
+			</tr>
+			<tr>
+	<td id="hourss"><span></span></td>
+	<td id="profit"></td>
+	<td id="profittwo"></td>
+			</tr>
+		</table>
+		<div id="credit">
+	<small>Created by <a href="https://www.mergefeed.io/thomas">Thomas George</a>. Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>
+		</div>
+	</div>
+</body>
+<footer>
+<script>
+	function changeChange() {
+		var value = document.getElementById('hours').value;
+		var wage  = document.getElementById('wage').value;
+		var multi = document.getElementById("overtime").value;
+
+		if((value != "") && (wage != "") && (multi != "")) {
+		document.getElementById("hourss").innerText = value;
+		if(value > '40') {
+			valuetwo = value - 40;
+			valuetwo = valuetwo * (wage * multi);
+			valuetwo = valuetwo + (40 * wage);
+			document.getElementById('profit').innerText = valuetwo;
+
+			valuetwo = valuetwo * .8464614526;
+			document.getElementById('profittwo').innerText = valuetwo;
+
+		} else {
+			valuetwo = (value * wage);
+			document.getElementById('profit').innerText = valuetwo;
+
+			valuetwo = valuetwo * .8464614526;
+			document.getElementById('profittwo').innerText = valuetwo;
+
+		}
+		}
+	}
+</script>
+</footer>
+</html>
